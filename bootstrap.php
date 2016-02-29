@@ -48,7 +48,7 @@ $em = EntityManager::create(
         'host'    => '127.0.0.1',
         'user'    => 'root',
         'password'  => '',
-        'dbname'  => 'sisDoct',
+        'dbname'  => 'teste_a2',
     ),
     $config,
     $evm

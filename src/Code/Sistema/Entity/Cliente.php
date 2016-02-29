@@ -13,6 +13,7 @@ use \Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="Code\Sistema\Entity\ClienteRepository")
+   @ORM\HasLifecycleCallbacks
  * @ORM\Table(name="clientes")
  */
 class Cliente {
@@ -60,6 +61,22 @@ class Cliente {
      */
     private $interesses;
     
+    /** @ORM\Column(type="datetime") */
+    private $createdAt;
+    
+    /** @ORM\PrePersist */
+    public function preCreated()
+    {
+        $this->createdAt =  new \DateTime();
+    }
+    
+    function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+  
+
     function getInteresses() {
         return $this->interesses;
     }
